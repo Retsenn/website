@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            //Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function(){
+                //incorrect options
+                var incorrects = document.querySelectorAll(".incorrect");
+
+                incorrects.forEach(function(incorrects){
+                    incorrects.addEventListener("click", function(){
+
+                    incorrects.style.backgroundColor = "red";
+
+                    document.getElementById("feedback").innerHTML = "Incorrect";
+                    });
+                });
+
+                //correct options
+                var corrects = document.querySelectorAll(".correct");
+                corrects.forEach(function(corrects){
+                    corrects.addEventListener("click", function(){
+
+                        corrects.style.backgroundColor = "green";
+
+                        document.getElementById("feedback").innerHTML = "Correct!!";
+                    });
+                });
+
+                Checker.addEventListener("click", function(){
+                    //window.alert(1);
+                    let answers = document.querySelector("#answer").value
+                    if (answers == 'Flynn')
+                    {
+                        //window.alert(answer);
+                        answer.style.backgroundColor = "green";
+                        document.getElementById("feedback2").innerHTML = "Correct!";
+
+                    }
+                    else
+                    {
+                        answer.style.backgroundColor = "red";
+                        document.getElementById("feedback2").innerHTML = "Incorrect";
+                    }
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!--Add multiple choice question here -->
+                <h3>
+                    Who is the wealthiest character in Breaking Bad?
+                </h3>
+                <button class="incorrect"> Walter White </button>
+                <button class="incorrect"> Don Eladio </button>
+                <button class="correct"> Gustavo Fring </button>
+                <button class="incorrect"> Jesse Pinkmen </button>
+            </div>
+            <p id="feedback"></p>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!--Add free response question here -->
+                <h3>
+                    Who is objectively the BEST character in Breaking Bad?
+                </h3>
+                <hr>
+                    <input id="answer" type="text" placeholder="Your Answer" autofocus>
+                    <button id="Checker">Submit Answer</button>
+
+                <p id="feedback2"></p>
+
+            </div>
+        </div>
+    </body>
+</html>
